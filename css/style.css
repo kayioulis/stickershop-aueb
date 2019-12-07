@@ -1,0 +1,24 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+.navbar {
+    background-color: #762124;
+    min-height: 6rem;
+    padding: 0 1rem;
+}
+.navbar-brand {
+    height: 6rem;
+}
+.navbar-brand img {
+    height: 3.5rem;
+}
+.navbar-brand h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+.navbar-collapse {
+    padding-bottom: 0.5rem;
+}
