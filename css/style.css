@@ -101,12 +101,13 @@ body {
 /* Main Content Area */
 .content {
     margin-top: 6rem;
+    min-height: calc(100vh - 12rem);
 }
 
 /* Hero Image */
 .hero {
     position: relative;
-    max-height: calc(100vh - 6rem);
+    max-height: calc(100vh - 12rem);
     overflow: hidden;
 }
 .hero img {
@@ -119,11 +120,36 @@ body {
     height: 100%;
 }
 
+/* Page Content */
+.page-content {
+    padding: 3rem 1rem;
+}
+
+/* Products Page */
+.products > div {
+    text-align: center;
+}
+.products img {
+    max-width: 100%;
+    max-height: 160px;
+}
+.products a {
+    display: block;
+    color: #762124;
+    text-decoration: none;
+}
+.products a:hover img {
+    transform: scale(1.1);
+}
+
 /* Footer */
 .footer {
-    min-height: 6rem;
+    height: 6rem;
     background-color: #212121;
     color: #ffffff;
     text-align: center;
     padding: 1rem;
+}
+.footer p {
+    margin: 0;
 }
