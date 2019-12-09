@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
+
 .navbar {
     background-color: #762124;
     min-height: 6rem;
@@ -19,6 +20,43 @@ body {
     text-transform: uppercase;
     text-align: center;
 }
+.navbar-collapse .navbar-nav {
+    height: calc(100vh - 6rem);
+    padding: 1rem;
+}
+.navbar-collapse, .navbar-collapse > * {
+    width: 100%;
+    max-width: 20rem;
+}
 .navbar-collapse {
-    padding-bottom: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 6rem;
+    background-color: #212121;
+    text-align: right;
+}
+
+.navbar-collapse .search-field {
+    background-color: #762124;
+    color: #ffffff;
+}
+.navbar-collapse .search-field::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+.form-control {
+    border-color: #6c757d;
+}
+.form-control:focus {
+    border-color: #6c757d;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(118, 33, 36, .25);
+}
+.btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show>.btn-outline-secondary.dropdown-toggle, .btn-outline-secondary:hover {
+    color: #762124;
+    background-color: #212121;
+    border-color: #6c757d;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(118, 33, 36, .25);
 }
