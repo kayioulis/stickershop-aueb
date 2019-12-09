@@ -35,6 +35,15 @@ body {
     background-color: #212121;
     text-align: right;
 }
+.navbar .navbar-toggler {
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    outline: 0;
+}
+.navbar .navbar-toggler:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
 
 .navbar-collapse .search-field {
     background-color: #762124;
