@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="el">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Προϊόντα - Αυτοκόλλητα ΟΠΑ</title>
+        <link rel="shortcut icon" href="https://www.aueb.gr/sites/default/files/hermis.png" type="image/png" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese&display=swap">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <nav class="navbar fixed-top navbar-dark">
+            <a class="navbar-brand mx-auto" href="./index.html">
+                <img src="./img/logo_opa.png">
+                <h2>Αυτοκόλλητα</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control search-field" placeholder="Αναζήτηση" aria-label="Αναζήτηση" aria-describedby="button-search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-search"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Αρχική Σελίδα</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./products.html">Αυτοκόλλητα</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="products-page" class="content">
+            <div class="page-content container">
+                <div class="product-details row">
+                    <div class="col-12 col-md-5">
+                        <img id="product-image">
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <h2 id="product-title" class="product-title">Τίτλος</h2>
+                        <p id="product-description" class="product-description">Περιγραφή</p>
+                        <h4 id="product-price" class="product-price">&euro; 0.00</h4>
+                        <div class="product-quantity">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-secondary" type="button" onclick="subtractQuantity()"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <input id="product-quantity-input" type="number" class="form-control" placeholder="Q." disabled aria-label="Product product-quantity" value="1" min="1" max="9">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="button" onclick="addQuantity()"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary">Αγορά</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer center-all">
+            <p class="copyright">
+                &copy; <script>document.write(new Date().getFullYear())</script> ΟΠΑ Stickers Shop.<br>
+                Δημιουργήθηκε με ❤ από τον Κωνσταντίνο Καγιούλη & τον Στράτο Αραβαντινό-Κρητικό.
+            </p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script>
+            function addQuantity() {
+                var quantity_input = document.getElementById('product-quantity-input');
+                if (quantity_input.value < 9) {
+                    quantity_input.value++;
+                }
+            }
+            function subtractQuantity() {
+                var quantity_input = document.getElementById('product-quantity-input');
+                if (quantity_input.value >= 1) {
+                    quantity_input.value--;
+                }
+            }
+
+            $(document).ready(function() {
+                function getSearchParameters() {
+                    var prmstr = window.location.search.substr(1);
+                    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+                }
+
+                function transformToAssocArray( prmstr ) {
+                    var params = {};
+                    var prmarr = prmstr.split("&");
+                    for ( var i = 0; i < prmarr.length; i++) {
+                        var tmparr = prmarr[i].split("=");
+                        params[tmparr[0]] = tmparr[1];
+                    }
+                    return params;
+                }
+
+                var params = getSearchParameters();
+
+                var title = document.getElementById('product-title');
+                var description = document.getElementById('product-description');
+                var price = document.getElementById('product-price');
+                var img = document.getElementById('product-image');
+
+                if(params.product == "hermis_logo"){
+                    title.innerText = "\"Ερμής\" Λογότυπο ΟΠΑ";
+                    description.innerText = "Απόκτησε το μοναδικό αυτοκόλλητο του ΟΠΑ και δείξε σε όλους ποια είναι η αγαπημένη σου σχολή!";
+                    price.innerHTML = "&euro; 1.00";
+                    img.src = "./img/stickers/hermis_logo.png"
+                } else if(params.product == "hermes-chibi"){
+                    title.innerText = "Ερμής Chibi";
+                    description.innerText = "Είσαι λάτρης των anime; Αυτό είναι το αυτοκόλλητο για εσένα!";
+                    price.innerHTML = "&euro; 1.80";
+                    img.src = "./img/stickers/hermes-chibi.png"
+                } else if(params.product == "logo_100y"){
+                    title.innerText = "100 Χρόνια ΟΠΑ";
+                    description.innerText = "Απόκτησε το εορταστικό αυτοκόλλητο του ΟΠΑ και δείξε σε όλους ότι η αγαπημένη σου σχολή, μόλις έγινε 100!";
+                    price.innerHTML = "&euro; 1.50";
+                    img.src = "./img/stickers/logo_100y.png"
+                } else if(params.product == "logo_opa"){
+                    title.innerText = "Λογότυπο ΟΠΑ";
+                    description.innerText = "Απόκτησε το μεγάλοοο αυτοκόλλητο του ΟΠΑ και δείξε σε όλους ποια είναι η αγαπημένη σου σχολή!";
+                    price.innerHTML = "&euro; 1.20";
+                    img.src = "./img/stickers/logo_opa.png"
+                } else if(params.product == "economics"){
+                    title.innerText = "Σχολή Οικονομικών Επιστημών";
+                    description.innerText = "Απόκτησε το αυτοκόλλητο που θα δείχνει σε όλους τι οικονομικός τύπος είσαι!";
+                    price.innerHTML = "&euro; 1.10";
+                    img.src = "./img/stickers/economics.png"
+                } else if(params.product == "sde"){
+                    title.innerText = "Σχολή Διοίκησης Επιχειρήσεων";
+                    description.innerText = "Απόκτησε το αυτοκόλλητο που θα δείχνει σε όλους τι διοικητικός τύπος είσαι!";
+                    price.innerHTML = "&euro; 1.10";
+                    img.src = "./img/stickers/sde.png"
+                } else if(params.product == "informatics"){
+                    title.innerText = "Σχολή Επιστημών & Τεχνολογίας της Πληροφορίας";
+                    description.innerText = "Απόκτησε το αυτοκόλλητο που θα δείχνει σε όλους τι πληροφοριακός τύπος είσαι!";
+                    price.innerHTML = "&euro; 1.10";
+                    img.src = "./img/stickers/informatics.png"
+                }
+            });
+        </script>
+    </body>
+</html>
